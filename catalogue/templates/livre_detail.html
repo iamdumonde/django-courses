@@ -1,0 +1,48 @@
+{% extends "base_generic.html" %} {% block title %}
+<title>Détails des livres</title>
+{% endblock %} {% block content %}
+<div class="container px-4 px-lg-5 my-5">
+  <div class="row gx-4 gx-lg-5 align-items-center">
+    <div class="col-md-6">
+      <img
+        class="card-img-top mb-5 mb-md-0"
+        src="{{ livre.image.url }}"
+        alt="..."
+      />
+    </div>
+    <div class="col-md-6">
+      <h3 class="display-5 fw-bolder">{{livre.titre}}</h3>
+      {% comment %}
+      <div class="fs-5 mb-5">
+        <span class="text-decoration-line-through">$45.00</span>
+        <span>$40.00</span>
+      </div>
+      {% endcomment %}
+      <p class="lead">{{ livre.description }}</p>
+      <div class="fs-5 mb-2">
+        <span class="small fw-bolder">Catégorie : </span><span> {{livre.categorie}}</span>
+      </div>
+      <div class="fs-5 mb-2">
+        <span class="small fw-bolder">Auteur : </span><span> {{livre.auteur}}</span>
+      </div>
+      <div class="fs-5 mb-2">
+        <span class="small fw-bolder">Date de publication : </span
+        ><span> {{ livre.date_publication }}</span>
+      </div>
+      {%if livre.en_stock %}
+      <div class="fs-5 mb-2">
+        <span class="small fw-bolder">Disponible</span
+        >
+      </div>
+      <!-- Add to cart button -->
+      <a href="" class="btn btn-outline-dark me-2">Ajouter au panier</a>
+      <a href="#" class="btn btn-dark">Commander directement</a>
+      {%else%}
+      <div class="alert alert-danger fs-5 text-center" role="alert">Ce livre est actuellement indisponible.</div>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
