@@ -55,3 +55,13 @@ class ListeAuteurs(ListView):
     def  get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         return context
+    
+    
+class DetailAuteur(DetailView):
+    model = 'Auteur'
+    template_name = 'auteur_detail.html'
+    context_object_name = 'auteur'
+    
+    def get_object(self, queryset = None):
+        return (Auteur.objects.get(pk=self.kwargs['id']))
+    

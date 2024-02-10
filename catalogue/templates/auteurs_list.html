@@ -30,14 +30,7 @@
             <h5 class="fw-bolder">{{ auteur.nom }}</h5>
             <!-- auteur authors -->
             <h6 class="fw-bolder">{{ auteur.auteur }}</h6>
-            <!-- auteur reviews-->
-            <div class="d-flex justify-content-center small text-warning mb-2">
-              <div class="bi-star-fill"></div>
-              <div class="bi-star-fill"></div>
-              <div class="bi-star-fill"></div>
-              <div class="bi-star-fill"></div>
-              <div class="bi-star-fill"></div>
-            </div>
+    
             <!-- Books price-->
             {% comment %} <span class="text-muted text-decoration-line-through">$20.00</span>   {% endcomment %}
           </div>
@@ -45,7 +38,7 @@
         <!-- actions -->
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div class="text-center">
-            <a class="btn btn-outline-dark mt-auto" href="">Détails</a>
+            <a class="btn btn-outline-dark mt-auto" href="{% url 'auteurdetail' %}">Détails</a>
           </div>
         </div>
       </div>

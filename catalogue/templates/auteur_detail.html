@@ -1,0 +1,46 @@
+{% extends "base_generic.html" %}
+{% block title %}
+<title>Détails d'un auteur</title>
+{% endblock %}
+
+{% block content %}
+<div class="container px-4 px-lg-5 my-5">
+  <div class="row gx-4 gx-lg-5 align-items-center">
+    <div class="col-md-6">
+      <img
+        class="card-img-top mb-5 mb-md-0"
+        src="{{ auteur.image.url }}"
+        alt="..."
+      />
+    </div>
+    <div class="col-md-6">
+      <h3 class="display-5 fw-bolder">{{auteur.titre}}</h3>
+      
+      <p class="lead">{{ auteur.description }}</p>
+      <div class="fs-5 mb-2">
+        <span class="small fw-bolder">Catégorie : </span><span> {{auteur.categorie}}</span>
+      </div>
+      <div class="fs-5 mb-2">
+        <span class="small fw-bolder">Auteur : </span><span> {{auteur.auteur}}</span>
+      </div>
+      <div class="fs-5 mb-2">
+        <span class="small fw-bolder">Date de publication : </span
+        ><span> {{ auteur.date_publication }}</span>
+      </div>
+      {%if auteur.en_stock %}
+      <div class="fs-5 mb-2">
+        <span class="small fw-bolder">Disponible</span
+        >
+      </div>
+      <!-- Add to cart button -->
+      <a href="" class="btn btn-outline-dark me-2">Ajouter au panier</a>
+      <a href="#" class="btn btn-dark">Commander directement</a>
+      {%else%}
+      <div class="alert alert-danger fs-5 text-center" role="alert">Ce auteur est actuellement indisponible.</div>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
